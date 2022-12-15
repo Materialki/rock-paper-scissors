@@ -43,8 +43,10 @@ function playRound() {
         return `The computer chose ${computerChoice}! Draw!`
     } else if ((computerChoice == "Rock" && playerChoice == "Scissors") || (computerChoice == "Scissors" && playerChoice == "Paper") || (computerChoice == "Paper" && playerChoice == "Rock") ) {
         return `The computer chose ${computerChoice}! You lose!`
-    } else {
+    } else if ((playerChoice == "Rock" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock") ) {
         return `The computer chose ${computerChoice}! You win!`
+    } else {
+        return "Please type rock scissors or paper."
     }
 }
 
