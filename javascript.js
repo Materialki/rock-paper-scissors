@@ -1,53 +1,58 @@
+let computerScore = 0;
+let playerScore = 0;
 let computerChoice;
-// let playerChoice;
 
-//To get a computer choice
-let rand = Math.floor(3 * Math.random());
+function game() {
 
-if (rand == 0) {
-    computerChoice = "Scissors"
-} else if (rand == 1) {
-    computerChoice = "Rock"
-} else {
-    computerChoice = "Paper"
-}
-//
+    //To get a computer choice
+    let rand = Math.floor(3 * Math.random());
 
-
-//To get a player choice
-let playerChoice = prompt("Rock, scissors, or paper?", "type here");
-// playerChoice = toUpperCase(playerChoice.slice(0,1))
-//playerChoice = typedValue;
-
-
-playerChoice = playerChoice.toLowerCase();
-let firstLetter = playerChoice.slice(0,1);
-firstLetter = firstLetter.toUpperCase();
-playerChoice = firstLetter + playerChoice.slice(1);
-
-
-// if (typedValue == /rock/i) {
-//     playerChoice = "Rock"
-// } else if (typedValue == /scissors/i) {
-//     playerChoice = "Scissors"
-// } else if (typedValue == /paper/i) {
-//     playerChoice = "Paper"
-// } else {
-//     playerChoice = null;
-// }
-//
-
-//
-function playRound() {
-    if (computerChoice == playerChoice) {
-        return `The computer chose ${computerChoice}! Draw!`
-    } else if ((computerChoice == "Rock" && playerChoice == "Scissors") || (computerChoice == "Scissors" && playerChoice == "Paper") || (computerChoice == "Paper" && playerChoice == "Rock") ) {
-        return `The computer chose ${computerChoice}! You lose!`
-    } else if ((playerChoice == "Rock" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock") ) {
-        return `The computer chose ${computerChoice}! You win!`
+    if (rand == 0) {
+        computerChoice = "Scissors"
+    } else if (rand == 1) {
+        computerChoice = "Rock"
     } else {
-        return "Please type rock scissors or paper."
+        computerChoice = "Paper"
     }
+    //
+
+
+    //To get a player choice
+    let playerChoice = prompt("Rock, scissors, or paper?", "type here");
+    //
+
+    //To make the player choice case insensitive
+    playerChoice = playerChoice.toLowerCase();
+    let firstLetter = playerChoice.slice(0,1);
+    firstLetter = firstLetter.toUpperCase();
+    playerChoice = firstLetter + playerChoice.slice(1);
+    //
+
+    // Computer points: ${computerScore}
+    // Your points:
+
+    //Test who wins
+    function playRound() {
+        if (computerChoice == playerChoice) {
+            return `The computer chose ${computerChoice}! Draw!`
+        } else if ((computerChoice == "Rock" && playerChoice == "Scissors") || (computerChoice == "Scissors" && playerChoice == "Paper") || (computerChoice == "Paper" && playerChoice == "Rock") ) {
+            computerScore++;
+            return `The computer chose ${computerChoice}! You lose!`
+        } else if ((playerChoice == "Rock" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock") ) {
+            playerScore++;
+            return `The computer chose ${computerChoice}! You win!`
+        } else {
+            return "Please type rock scissors or paper."
+        }
+    }
+    //
+
+    return playRound()
+
+//console.log(playRound())
 }
 
-console.log(playRound())
+for (let i = 0; i < 5; i++) {
+    console.log(game())
+    game();
+}
