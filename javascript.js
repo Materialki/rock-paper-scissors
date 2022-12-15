@@ -57,7 +57,12 @@ function game() {
 //console.log(playRound())
 }
 
-for (let i = 0; i < 5; i++) {
+// for (let i = 0; i < 5; i++) {
+//     console.log(game());
+// }
+
+
+while (computerScore + playerScore < 5) {
     console.log(game());
 }
 
