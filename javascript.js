@@ -50,4 +50,4 @@ function playRound() {
     }
 }
 
-console.log(playRound(), computerChoice, playerChoice)
+console.log(playRound())
