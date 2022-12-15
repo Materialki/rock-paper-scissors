@@ -2,6 +2,11 @@ let computerScore = 0;
 let playerScore = 0;
 let computerChoice;
 
+function printScore() {
+    return ` Your points: ${playerScore}
+    The computer\'s points: ${computerScore}`
+}
+
 function game() {
 
     //To get a computer choice
@@ -34,13 +39,13 @@ function game() {
     //Test who wins
     function playRound() {
         if (computerChoice == playerChoice) {
-            return `The computer chose ${computerChoice}! Draw!`
+            return `The computer chose ${computerChoice}! Draw!` + printScore()
         } else if ((computerChoice == "Rock" && playerChoice == "Scissors") || (computerChoice == "Scissors" && playerChoice == "Paper") || (computerChoice == "Paper" && playerChoice == "Rock") ) {
             computerScore++;
-            return `The computer chose ${computerChoice}! You lose!`
+            return `The computer chose ${computerChoice}! You lose!` + printScore()
         } else if ((playerChoice == "Rock" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock") ) {
             playerScore++;
-            return `The computer chose ${computerChoice}! You win!`
+            return `The computer chose ${computerChoice}! You win!` + printScore()
         } else {
             return "Please type rock scissors or paper."
         }
@@ -53,6 +58,7 @@ function game() {
 }
 
 for (let i = 0; i < 5; i++) {
-    console.log(game())
-    game();
+    console.log(game());
 }
+
+
