@@ -33,9 +33,6 @@ function game() {
     playerChoice = firstLetter + playerChoice.slice(1);
     //
 
-    // Computer points: ${computerScore}
-    // Your points:
-
     //Test who wins
     function playRound() {
         if (computerChoice == playerChoice) {
@@ -53,13 +50,7 @@ function game() {
     //
 
     return playRound()
-
-//console.log(playRound())
 }
-
-// for (let i = 0; i < 5; i++) {
-//     console.log(game());
-// }
 
 
 while (computerScore + playerScore < 5) {
