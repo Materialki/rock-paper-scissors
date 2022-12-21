@@ -1,35 +1,47 @@
 const rockButton = document.querySelector('#rock');
 const scissorsButton = document.querySelector("#scissors");
 const paperButton = document.querySelector("#paper");
+const resultMessage = document.querySelector(".current-round-results");
+const compScoreDiv = document.querySelector("#computer-score");
+const playerScoreDiv = document.querySelector("#player-score");
+const resetButton = document.querySelector("#reset");
 
 let playerChoice;
+let computerChoice;
+
+let computerScore = 0;
+let playerScore = 0;
 
 rockButton.addEventListener('click', () => {
     playerChoice = "Rock";
-    console.log(game());
+    resultMessage.textContent = game();
+    compScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = playerScore;
 });
 
 scissorsButton.addEventListener('click', () => {
     playerChoice = "Scissors";
-    console.log(game());
+    resultMessage.textContent = game();
+    compScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = playerScore;
 });
 
 paperButton.addEventListener('click', () => {
     playerChoice = "Paper";
-    console.log(game());
+    resultMessage.textContent = game();
+    compScoreDiv.textContent = computerScore;
+playerScoreDiv.textContent = playerScore;
 });
 
+resetButton.addEventListener('click', () => {
+    computerScore = 0;
+    playerScore = 0;
+    compScoreDiv.textContent = computerScore;
+    playerScoreDiv.textContent = playerScore;
+})
 
-// let computerScore = 0;
-// let playerScore = 0;
-let computerChoice;
-
-// function printScore() {
-//     return ` Your points: ${playerScore}
-//     The computer\'s points: ${computerScore}`
-// }
-
-
+compScoreDiv.textContent = computerScore;
+playerScoreDiv.textContent = playerScore;
 
 function game() {
 
@@ -45,30 +57,16 @@ function game() {
     }
     //
 
-
-    // //To get a player choice
-    // let playerChoice = prompt("Rock, scissors, or paper?", "type here");
-    // //
-
-//     //To make the player choice case insensitive
-//     playerChoice = playerChoice.toLowerCase();
-//     let firstLetter = playerChoice.slice(0,1);
-//     firstLetter = firstLetter.toUpperCase();
-//     playerChoice = firstLetter + playerChoice.slice(1);
-//     //
-
     //Test who wins
     function playRound() {
         if (computerChoice == playerChoice) {
             return `The computer chose ${computerChoice}! Draw!`
         } else if ((computerChoice == "Rock" && playerChoice == "Scissors") || (computerChoice == "Scissors" && playerChoice == "Paper") || (computerChoice == "Paper" && playerChoice == "Rock") ) {
-            // computerScore++;
+            computerScore++;
             return `The computer chose ${computerChoice}! You lose!`;
         } else if ((playerChoice == "Rock" && computerChoice == "Scissors") || (playerChoice == "Scissors" && computerChoice == "Paper") || (playerChoice == "Paper" && computerChoice == "Rock") ) {
-            // playerScore++;
+            playerScore++;
             return `The computer chose ${computerChoice}! You win!`
-        // } else {
-        //     return "Please type rock scissors or paper."
         }
     }
     //
