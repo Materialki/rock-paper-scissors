@@ -8,6 +8,7 @@ const playerScoreDiv = document.querySelector("#player-score");
 const resetButton = document.querySelector("#reset");
 const disResultsDiv = document.querySelector(".display-results");
 const body = document.querySelector("body");
+const crr = document.querySelector(".current-round-results")
 //
 
 //declaring choices and scores
@@ -22,8 +23,6 @@ let playerScore = 0;
 compScoreDiv.textContent = computerScore;
 playerScoreDiv.textContent = playerScore;
 //
-
-let endGame = document.createElement('div');
 
 //what happens when you click the buttons
 rockButton.addEventListener('click', () => {
@@ -55,7 +54,7 @@ resetButton.addEventListener('click', () => {
     playerScore = 0;
     compScoreDiv.textContent = computerScore;
     playerScoreDiv.textContent = playerScore;
-    body.removeChild(endGame)
+    crr.removeChild(endGame)
 })
 //
 
@@ -64,14 +63,12 @@ function isEnd() {
     if (computerScore == 5 || playerScore == 5) {
 
         if (computerScore == 5) {
-            endGame.textContent = "Sorry! The computer won. Please press the reset button to play again."
+            crr.textContent = "Sorry! The computer won. Please press the reset button to play again."
         }
 
         if (playerScore == 5) {
-            endGame.textContent = "Congrats! You won! Please press the reset button to play again."
+            crr.textContent = "Congrats! You won! Please press the reset button to play again."
         }
-
-        body.appendChild(endGame)
     }
 }
 
