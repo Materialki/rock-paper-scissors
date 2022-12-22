@@ -6,7 +6,8 @@ const resultMessage = document.querySelector(".current-round-results");
 const compScoreDiv = document.querySelector("#computer-score");
 const playerScoreDiv = document.querySelector("#player-score");
 const resetButton = document.querySelector("#reset");
-const disResultsDiv = document.querySelector(".display-results")
+const disResultsDiv = document.querySelector(".display-results");
+const body = document.querySelector("body");
 //
 
 //declaring choices and scores
@@ -54,7 +55,7 @@ resetButton.addEventListener('click', () => {
     playerScore = 0;
     compScoreDiv.textContent = computerScore;
     playerScoreDiv.textContent = playerScore;
-    disResultsDiv.removeChild(endGame)
+    body.removeChild(endGame)
 })
 //
 
@@ -70,7 +71,7 @@ function isEnd() {
             endGame.textContent = "Congrats! You won! Please press the reset button to play again."
         }
 
-        disResultsDiv.appendChild(endGame)
+        body.appendChild(endGame)
     }
 }
 
