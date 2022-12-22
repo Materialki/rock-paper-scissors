@@ -30,6 +30,7 @@ rockButton.addEventListener('click', () => {
     resultMessage.textContent = game();
     compScoreDiv.textContent = computerScore;
     playerScoreDiv.textContent = playerScore;
+    isEnd();
 });
 
 scissorsButton.addEventListener('click', () => {
@@ -37,6 +38,7 @@ scissorsButton.addEventListener('click', () => {
     resultMessage.textContent = game();
     compScoreDiv.textContent = computerScore;
     playerScoreDiv.textContent = playerScore;
+    isEnd();
 });
 
 paperButton.addEventListener('click', () => {
